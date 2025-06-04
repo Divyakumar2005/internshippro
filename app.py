@@ -1,53 +1,38 @@
-from flask import Flask, render_template, request, redirect, url_for,session
-import mysql.connector
+from flask import Flask, render_template, redirect, url_for
 
 app = Flask(__name__)
-app.secret_key = 'your_secret_key'  # Required for session handling
-
-# MySQL configuration
-db_config = {
-    'host': 'localhost',
-    'user': 'your_mysql_user',
-    'password': 'your_mysql_password',
-    'database': 'your_database_name'
-}
-
-# ---------- ROUTES ----------
 
 @app.route('/')
 def index():
-    return render_template('login.html')
+    return render_template('index.html')  # or 'login.html' if index is blank
 
-@app.route('/login', methods=['POST'])
+@app.route('/login')
 def login():
-    username = request.form['username']
-    password = request.form['password']
-
-    conn = mysql.connector.connect(**db_config)
-    cursor = conn.cursor()
-    cursor.execute("SELECT * FROM users WHERE username=%s AND password=%s", (username, password))
-    user = cursor.fetchone()
-    conn.close()
-
-    if user:
-        session['username'] = username
-        return redirect(url_for('home'))
-    else:
-        return "Invalid credentials", 401
+    return render_template('login.html')
 
 @app.route('/home')
 def home():
-    if 'username' not in session:
-        return redirect(url_for('index'))
-    return render_template('home.html', username=session['username'])
+    return render_template('home.html')
 
 @app.route('/department')
 def department():
     return render_template('department.html')
 
-@app.route('/newentry')
+@app.route('/memo')
+def memo():
+    return render_template('memo.html')
+
+@app.route('/new-entry')
 def new_entry():
     return render_template('new(newentry).html')
+
+@app.route('/mark-attendance')
+def mark_attendance():
+    return render_template('newmarkattlist.html')
+
+@app.route('/search')
+def search():
+    return render_template('search.html')
 
 @app.route('/shift')
 def shift():
@@ -55,13 +40,7 @@ def shift():
 
 @app.route('/view')
 def view():
-    return render_template('view.html.html')
+    return render_template('view.html.html')  # rename the file to view.html ideally
 
-@app.route('/logout')
-def logout():
-    session.pop('username', None)
-    return redirect(url_for('index'))
-
-# ---------- MAIN ----------
 if __name__ == '__main__':
     app.run(debug=True)
