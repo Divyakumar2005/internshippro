@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Select Shift</title>
+  <style>
+    /* Reset and base */
+    * {
+      box-sizing: border-box;
+    }
+
+    body, html {
+      margin: 0; padding: 0;
+      height: 100%;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: #fff;
+      overflow: hidden;
+      position: relative;
+    }
+
+    /* Background Image with overlay */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1470&q=80') no-repeat center center/cover;
+      filter: brightness(0.6);
+      z-index: -2;
+    }
+
+    body::after {
+      content: "";
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0, 77, 64, 0.6); /* dark teal overlay */
+      z-index: -1;
+    }
+
+    .container {
+      display: flex;
+      gap: 40px;
+      flex-wrap: wrap;
+      justify-content: center;
+      max-width: 600px;
+      padding: 20px;
+      z-index: 1;
+      position: relative;
+    }
+
+    .shift-card {
+      background: rgba(255, 255, 255, 0.85);
+      color: #004d40;
+      width: 250px;
+      height: 180px;
+      border-radius: 20px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      text-decoration: none;
+      user-select: none;
+      font-weight: 700;
+      letter-spacing: 1px;
+      font-size: 24px;
+    }
+
+    .shift-card:hover {
+      transform: translateY(-12px) scale(1.05);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+    }
+
+    .shift-icon {
+      font-size: 60px;
+      margin-bottom: 15px;
+      color: #00796b;
+    }
+
+    /* Responsive */
+    @media(max-width: 550px) {
+      .shift-card {
+        width: 90%;
+        height: 160px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <a href="../templates/newmarkattlist.html" class="shift-card" title="Select Shift A (Morning)">
+      <div class="shift-icon">☀️</div>
+      Shift A (Morning)
+    </a>
+
+    <a href="../templates/newmarkattlist.html" class="shift-card" title="Select Shift B (Evening)">
+      <div class="shift-icon">🌙</div>
+      Shift B (Evening)
+    </a>
+  </div>
+
+</body>
+</html>

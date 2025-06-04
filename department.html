@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Departments</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to right, #e0f7fa, #e1f5fe);
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 40px auto;
+      padding: 20px;
+      text-align: center;
+    }
+
+    h1 {
+      color: #006064;
+      margin-bottom: 40px;
+      font-size: 36px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 25px;
+    }
+
+    .box {
+      background: linear-gradient(135deg, #ffffff, #e0f7fa);
+      border: 2px solid #b2ebf2;
+      border-radius: 15px;
+      padding: 30px 20px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+      text-decoration: none;
+      color: inherit;
+      display: block;
+    }
+
+    .box:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+    }
+
+    .box h2 {
+      font-size: 20px;
+      color: #00796b;
+      margin: 0;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>📚 College Departments</h1>
+    <div class="grid">
+      <a href="../templates/login.html" class="box"><h2>Computer Science</h2></a>
+      <a href="../templates/login.html" class="box"><h2>Information Technology</h2></a>
+      <a href="../templates/login.html" class="box"><h2>Business Administration</h2></a>
+      <a href="../templates/login.html" class="box"><h2>Commerce</h2></a>
+      <a href="../templates/login.html" class="box"><h2>Mathematics</h2></a>
+      <a href="../templates/login.html" class="box"><h2>Physics</h2></a>
+      <a href="../templates/login.html" class="box"><h2>Chemistry</h2></a>
+      <a href="../templates/login.html" class="box"><h2>English</h2></a>
+      <a href="../templates/login.html" class="box"><h2>Economics</h2></a>
+      <a href="../templates/login.html" class="box"><h2>Visual Communication</h2></a>
+    </div>
+  </div>
+
+</body>
+</html>

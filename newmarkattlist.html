@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Student Attendance Sheet</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to right, #e0f7fa, #ffffff);
+      margin: 0;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #006064;
+      font-size: 36px;
+      margin-bottom: 40px;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+    }
+
+    table {
+      width: 90%;
+      margin: auto;
+      border-collapse: collapse;
+      background: #ffffff;
+      border-radius: 15px;
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+    }
+
+    th, td {
+      padding: 18px;
+      text-align: center;
+      font-size: 16px;
+      border-bottom: 1px solid #ddd;
+    }
+
+    th {
+      background-color: #00796b;
+      color: white;
+      font-size: 18px;
+    }
+
+    tr:nth-child(even) {
+      background-color: #f2fdfc;
+    }
+
+    tr:hover {
+      background-color: #e0f2f1;
+      transition: 0.3s;
+    }
+
+    input[type="checkbox"] {
+      appearance: none;
+      width: 20px;
+      height: 20px;
+      border: 2px solid #00796b;
+      border-radius: 5px;
+      cursor: pointer;
+      position: relative;
+    }
+
+    input[type="checkbox"]:checked {
+      background-color: #00796b;
+    }
+
+    input[type="checkbox"]::after {
+      content: "";
+      position: absolute;
+      width: 5px;
+      height: 10px;
+      border: solid white;
+      border-width: 0 2px 2px 0;
+      transform: rotate(45deg);
+      top: 2px;
+      left: 6px;
+      display: none;
+    }
+
+    input[type="checkbox"]:checked::after {
+      display: block;
+    }
+
+    .submit-section {
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    .submit-button {
+      padding: 12px 25px;
+      font-size: 16px;
+      background-color: #00796b;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    .submit-button:hover {
+      background-color: #004d40;
+    }
+
+    .success-box {
+      display: none;
+      margin: 30px auto;
+      width: fit-content;
+      padding: 15px 30px;
+      border-radius: 10px;
+      background-color: #e0f2f1;
+      color: #004d40;
+      font-size: 18px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    #success:target {
+      display: block;
+    }
+
+    .footer {
+      margin-top: 50px;
+      text-align: center;
+      color: #777;
+      font-size: 14px;
+    }
+
+    @media (max-width: 768px) {
+      table, th, td {
+        font-size: 14px;
+        padding: 10px;
+      }
+
+      h1 {
+        font-size: 28px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>📋 Student Attendance Sheet</h1>
+
+  <form>
+    <table>
+      <thead>
+        <tr>
+          <th>Serial No.</th>
+          <th>Register No.</th>
+          <th>Student Name</th>
+          <th>Present</th>
+          <th>Absent</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>2023001</td>
+          <td>Alice Johnson</td>
+          <td><input type="checkbox" name="present1"></td>
+          <td><input type="checkbox" name="absent1"></td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>2023002</td>
+          <td>Bob Smith</td>
+          <td><input type="checkbox" name="present2"></td>
+          <td><input type="checkbox" name="absent2"></td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>2023003</td>
+          <td>Clara Thomas</td>
+          <td><input type="checkbox" name="present3"></td>
+          <td><input type="checkbox" name="absent3"></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="submit-section">
+      <a href="#success" class="submit-button">Submit</a>
+    </div>
+  </form>
+
+  <div id="success" class="success-box">
+    ✅ Submitted successfully!
+  </div>
+
+  <div class="footer">
+    Designed with ❤️ using only HTML & CSS – No JavaScript!
+  </div>
+
+</body>
+</html>
