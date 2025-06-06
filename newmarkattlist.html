@@ -149,15 +149,18 @@
           <th>Serial No.</th>
           <th>Register No.</th>
           <th>Student Name</th>
+          <th>Date</th>
           <th>Present</th>
           <th>Absent</th>
         </tr>
       </thead>
-      <tbody>
-        <tr>
+     <!-- <tbody>
+       <tr>
           <td>1</td>
           <td>2023001</td>
+          
           <td>Alice Johnson</td>
+           <td>23.03.1945</td>
           <td><input type="checkbox" name="present1"></td>
           <td><input type="checkbox" name="absent1"></td>
         </tr>
@@ -165,22 +168,38 @@
           <td>2</td>
           <td>2023002</td>
           <td>Bob Smith</td>
+           <td>23.03.1945</td>
           <td><input type="checkbox" name="present2"></td>
           <td><input type="checkbox" name="absent2"></td>
         </tr>
         <tr>
           <td>3</td>
           <td>2023003</td>
+           
           <td>Clara Thomas</td>
+           <td>23.03.1945</td>
           <td><input type="checkbox" name="present3"></td>
           <td><input type="checkbox" name="absent3"></td>
         </tr>
-      </tbody>
+      </tbody>-->
+      <tbody>
+  {% for student in students %}
+  <tr>
+    <td>{{ loop.index }}</td>
+    <td>{{ student[2] }}</td> <!-- register_number -->
+    <td>{{ student[1] }}</td> <!-- name -->
+    <td>{{ date }}</td>
+    <td><input type="radio" name="status_{{ student[0] }}" value="Present" required></td>
+    <td><input type="radio" name="status_{{ student[0] }}" value="Absent"></td>
+  </tr>
+  {% endfor %}
+</tbody>
     </table>
 
     <div class="submit-section">
-      <a href="#success" class="submit-button">Submit</a>
-    </div>
+  <a href="#success" class="submit-button">Submit</a>
+  <a href="{{ url_for('view') }}" class="submit-button" style="margin-left: 15px;">Preview</a>
+</div>
   </form>
 
   <div id="success" class="success-box">
